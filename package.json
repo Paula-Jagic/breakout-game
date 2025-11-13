@@ -1,0 +1,12 @@
+{
+  "name": "breakout-game",
+  "version": "1.0.0",
+  "description": "Breakout igra",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s ."
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}
