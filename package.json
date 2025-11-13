@@ -4,7 +4,8 @@
   "description": "Breakout igra",
   "main": "index.html",
   "scripts": {
-    "start": "serve -s ."
+    "start": "serve -s .",
+    "build": "echo 'No build needed for static site'"
   },
   "dependencies": {
     "serve": "^14.0.0"
