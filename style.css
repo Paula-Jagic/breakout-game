@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    border: 5px solid white;
+    background-color: black; 
+    resize: none;
+    max-width: 800px;
+    max-height: 600px;
+    min-width: 800px;
+    min-height: 600px;
+}
