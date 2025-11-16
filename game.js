@@ -101,17 +101,15 @@ function movePaddle() {
         paddle.x -= paddle.speed;
     }
     
-    
     if (keys['ArrowRight'] || keys['d']) {
         paddle.x += paddle.speed;
     }
-    
     
     if (paddle.x < 0) {
         paddle.x=0;  
     }
     if (paddle.x + paddle.width > canvas.width) {
-        paddle.x=canvas.width - paddle.width;  
+        paddle.x=canvas.width-paddle.width;  
     }
 }
 
