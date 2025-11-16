@@ -118,7 +118,7 @@ function initBall() {
     ball.x=paddle.x+paddle.width/2- ball.size/2;
     ball.y=paddle.y-ball.size;
     
-    const randomSmjer=Math.random()>0.5 ? 1 : -1;
+    const randomSmjer=Math.random()<0.5 ? 1 : -1;
     ball.speedX=POČETNA_BRZINA_LOPTICE*randomSmjer; 
     ball.speedY=-POČETNA_BRZINA_LOPTICE; 
 }
