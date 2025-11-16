@@ -1,6 +1,7 @@
 const canvas=document.getElementById('gameCanvas');
 const ctx=canvas.getContext('2d');
 
+
 let gameState='beginning';
 
 let score=0;
@@ -55,6 +56,7 @@ let ball={
 
 //Crtanje početnog naslova
 function drawBeginning() {
+    ctx.shadowColor = 'transparent'
     ctx.font='bold 36px Helvetica, Verdana';
     ctx.fillStyle='white';
     ctx.textAlign='center';
@@ -69,63 +71,28 @@ function drawBeginning() {
 
 //Crtanje paddle-a
 function drawPaddle() { 
+    
+    ctx.shadowColor = 'rgba(255, 255, 255, 0.8)'
+    ctx.shadowBlur = 4;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
     ctx.fillStyle=paddle.color;
     ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
 
-    //Dodavanje 3D obruba
-    ctx.strokeStyle='#cccccc';
-    ctx.lineWidth=2;
-    ctx.beginPath();
-    
-    ctx.moveTo(paddle.x, paddle.y);
-    ctx.lineTo(paddle.x + paddle.width, paddle.y);
-    
-    ctx.moveTo(paddle.x, paddle.y);
-    ctx.lineTo(paddle.x, paddle.y + paddle.height);
-    ctx.stroke();
-    
-    
-    ctx.strokeStyle='#666666';  
-    ctx.lineWidth=2;
-    ctx.beginPath();
-    
-    ctx.moveTo(paddle.x, paddle.y + paddle.height);
-    ctx.lineTo(paddle.x + paddle.width, paddle.y + paddle.height);
-    
-    ctx.moveTo(paddle.x + paddle.width, paddle.y);
-    ctx.lineTo(paddle.x + paddle.width, paddle.y + paddle.height);
-    ctx.stroke();
+  
 }
 
 
 //Crtanje lopte/ball-a
 function drawBall() {
+    ctx.shadowColor = 'rgba(255, 255, 255, 0.8)'
+    ctx.shadowBlur = 4;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
     ctx.fillStyle='lightgray';
     ctx.fillRect(ball.x, ball.y, ball.size, ball.size);
     
-    //Dodavanje 3D obruba
-    ctx.strokeStyle='white';  
-    ctx.lineWidth=1;
-    ctx.beginPath();
-    
-    ctx.moveTo(ball.x, ball.y);
-    ctx.lineTo(ball.x + ball.size, ball.y);
-    
-    ctx.moveTo(ball.x, ball.y);
-    ctx.lineTo(ball.x, ball.y + ball.size);
-    ctx.stroke();
-    
-    
-    ctx.strokeStyle='#a0a0a0'; 
-    ctx.lineWidth=1;
-    ctx.beginPath();
-    
-    ctx.moveTo(ball.x, ball.y + ball.size);
-    ctx.lineTo(ball.x + ball.size, ball.y + ball.size);
-    
-    ctx.moveTo(ball.x + ball.size, ball.y);
-    ctx.lineTo(ball.x + ball.size, ball.y + ball.size);
-    ctx.stroke();
+ 
 }
 
 //Funkcionalnost pomicanja paddle-a sa strelicama lijevo, desno, a i d
@@ -205,6 +172,7 @@ function checkPaddleCollision() {
 
 //Crtanje kraja igre ako osoba izgubi
 function drawGameOver() {
+    ctx.shadowColor = 'transparent'
     ctx.font='bold 40px Helvetica, Verdana';
     ctx.fillStyle='yellow';  
     ctx.textAlign='center';
@@ -243,28 +211,14 @@ function drawBricks() {
     bricks.forEach(brick => {
         if (!brick.destroyed) {
             
+            ctx.shadowColor = 'rgba(255, 255, 255, 0.8)'
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
             ctx.fillStyle=brick.color;
             ctx.fillRect(brick.x, brick.y, brick.width, brick.height);
             
-        //Dodavanje 3D obruba
-            ctx.strokeStyle='rgba(255, 255, 255, 0.6)'; 
-            ctx.lineWidth=3;
-            ctx.beginPath();
-            ctx.moveTo(brick.x, brick.y);
-            ctx.lineTo(brick.x+brick.width, brick.y); 
-            ctx.moveTo(brick.x, brick.y);
-            ctx.lineTo(brick.x, brick.y+brick.height); 
-            ctx.stroke();
-            
-            
-            ctx.strokeStyle='rgba(0, 0, 0, 0.4)'; 
-            ctx.lineWidth=3;
-            ctx.beginPath();
-            ctx.moveTo(brick.x, brick.y+brick.height);
-            ctx.lineTo(brick.x+brick.width, brick.y+brick.height); 
-            ctx.moveTo(brick.x+brick.width, brick.y);
-            ctx.lineTo(brick.x+brick.width, brick.y+brick.height); 
-            ctx.stroke();
+        
         }
     });
 }
@@ -348,6 +302,7 @@ function checkWin() {
 
 //Crtanje poruke za pobjedu
 function drawWin() {
+    ctx.shadowColor = 'transparent'
     ctx.font='bold 40px Helvetica, Verdana';
     ctx.fillStyle='yellow';
     ctx.textAlign='center';
@@ -358,6 +313,7 @@ function drawWin() {
 
 //Funkcionalnost crtanja rezultata
 function drawScores() {  
+    ctx.shadowColor = 'transparent'
     ctx.font='bold 20px Helvetica, Verdana';
     ctx.fillStyle='white';
     ctx.textAlign='left';
@@ -371,6 +327,7 @@ function drawScores() {
 //Glavni loop igre
 function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
     if (gameState=='beginning') {
         drawBeginning();
     } 
